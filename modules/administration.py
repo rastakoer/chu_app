@@ -77,16 +77,17 @@ class Archive:
         bdd.commit()
 
     def sortie_rh(id):
-        query = f"""UPDATE archives SET date_sortie='{datetime.date.today()}' WHERE archives.identifiant_resident= '{id}' """
+        print(datetime.date.today())
+        query = f"""UPDATE archives SET date_sortie = '{datetime.date.today()}' WHERE ( archives.identifiant_resident = '{id}'); """
         cursor.execute(query)
-        query = f"""UPDATE rh SET working_at_hospital=0 WHERE rh.identifiant_rrh= '{id}' """ 
+        query = f"""UPDATE rh SET working_at_hospital = 0 WHERE ( rh.identifiant_rrh = '{id}'); """ 
         cursor.execute(query)
         bdd.commit()
     
     def sortie_patient(id):
-        query = f"""UPDATE archives SET date_sortie='{datetime.date.today()}' WHERE archives.identifiant_resident= '{id}' """
+        query = f"""UPDATE archives SET date_sortie = '{datetime.date.today()}' WHERE ( archives.identifiant_resident = '{id}'); """
         cursor.execute(query)
-        query = f"""UPDATE patients SET is_in_hospital=0 WHERE patients.id_patient= '{id}' """ 
+        query = f"""UPDATE patients SET is_in_hospital = 0 WHERE (patients.id_patient = '{id}'); """ 
         cursor.execute(query)
         bdd.commit()
 

@@ -45,7 +45,7 @@ with st.form("upload"):
     st.subheader("Fin de contrat du Rh")
     col1,col2= st.columns(2)
     with col1:
-        st.text_input("Coller l'id du Rh pour enrigistrer sa sortie à la date du jour")
+        id1=st.text_input("Coller l'id du Rh pour enrigistrer sa sortie à la date du jour")
     with col2:
         if st.form_submit_button("VALIDER SA SORTIE"):
-            Archive.sortie_rh(id)
+            Archive.sortie_rh(id1)

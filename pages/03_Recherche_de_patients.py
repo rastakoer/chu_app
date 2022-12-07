@@ -49,10 +49,10 @@ with st.form("upload"):
     st.subheader("Enregistrer la sortie du patient à la date du jour")
     col1,col2= st.columns(2)
     with col1:
-        st.text_input("Coller l'id du patient pour enrigistrer sa sortie")
+        id1=st.text_input("Coller l'id du patient pour enrigistrer sa sortie")
     with col2:
         if st.form_submit_button("VALIDER SA SORTIE"):
-            Archive.sortie_patient(id)
+            Archive.sortie_patient(id1)
         
 
 
